@@ -229,6 +229,23 @@ public class DataBaseInterfaceGuiBase extends AnchorPane {
         
         
         //Islam's Section
-      
+        lastButton.setOnAction(e -> {
+                                            try 
+                                            {
+                                                if(resultSet.last())
+                                                {
+                                                    idTextField.setText(Integer.toString(resultSet.getInt(1)));
+                                                    lastNameTextField.setText(resultSet.getString(2));
+                                                    firstNameTextField.setText(resultSet.getString(3));
+                                                    phoneTextField.setText(resultSet.getString(4));
+                                                }
+                                            } 
+                                            catch (SQLException ex) 
+                                            {
+                                                Logger.getLogger(DataBaseInterfaceGuiBase.class.getName()).log(Level.SEVERE, null, ex);
+                                            }
+                                     });
+        
+        
     }
 }
