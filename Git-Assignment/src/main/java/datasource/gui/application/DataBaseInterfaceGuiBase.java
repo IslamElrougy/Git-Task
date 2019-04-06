@@ -165,6 +165,68 @@ public class DataBaseInterfaceGuiBase extends AnchorPane {
         getChildren().add(updateButton);
         getChildren().add(deleteButton);
         //Mai's Section
+         try
+        {    
+            connection = dataSource.getConnection();
+            statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE, ResultSet.HOLD_CURSORS_OVER_COMMIT);
+            resultSet = statement.executeQuery("select * from employees");
+        }
+        catch(SQLException e)
+        {
+            e.printStackTrace();
+        }
+        
+        nextButton.setOnAction(e -> {
+                                        try 
+                                        {
+                                            if(resultSet.next())
+                                            {
+                                                idTextField.setText(Integer.toString(resultSet.getInt(1)));
+                                                lastNameTextField.setText(resultSet.getString(2));
+                                                firstNameTextField.setText(resultSet.getString(3));
+                                                phoneTextField.setText(resultSet.getString(4));
+                                            }
+                                        } 
+                                        catch (SQLException ex) 
+                                        {
+                                            Logger.getLogger(DataBaseInterfaceGuiBase.class.getName()).log(Level.SEVERE, null, ex);
+                                        }
+                                    });
+        
+        previousButton.setOnAction(e -> {
+                                            try 
+                                            {
+                                                if(resultSet.previous())
+                                                {
+                                                    idTextField.setText(Integer.toString(resultSet.getInt(1)));
+                                                    lastNameTextField.setText(resultSet.getString(2));
+                                                    firstNameTextField.setText(resultSet.getString(3));
+                                                    phoneTextField.setText(resultSet.getString(4));
+                                                }
+                                            } 
+                                            catch (SQLException ex) 
+                                            {
+                                                Logger.getLogger(DataBaseInterfaceGuiBase.class.getName()).log(Level.SEVERE, null, ex);
+                                            }
+                                        });
+        
+        firstButton.setOnAction(e -> {
+                                            try 
+                                            {
+                                                if(resultSet.first())
+                                                {
+                                                    idTextField.setText(Integer.toString(resultSet.getInt(1)));
+                                                    lastNameTextField.setText(resultSet.getString(2));
+                                                    firstNameTextField.setText(resultSet.getString(3));
+                                                    phoneTextField.setText(resultSet.getString(4));
+                                                }
+                                            } 
+                                            catch (SQLException ex) 
+                                            {
+                                                Logger.getLogger(DataBaseInterfaceGuiBase.class.getName()).log(Level.SEVERE, null, ex);
+                                            }
+                                     });
+        
         
         //Islam's Section
       
