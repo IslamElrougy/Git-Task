@@ -1,4 +1,3 @@
-
 package datasource.database.factory;
 
 import java.io.FileInputStream;
@@ -13,24 +12,15 @@ import com.mysql.cj.jdbc.MysqlDataSource;
  */
 public class DataSourceFactory
 {
-    public static DataSource getMySQLDataSource() 
+
+    public static DataSource getMySQLDataSource()
     {
-        Properties properties = new Properties();
-        FileInputStream fileInputStream = null;
         MysqlDataSource mySqlDataSource = null;
-        try 
-        {
-            fileInputStream = new FileInputStream("database.properties");
-            properties.load(fileInputStream);
-            mySqlDataSource = new MysqlDataSource();
-            mySqlDataSource.setURL(properties.getProperty("MYSQL_DB_URL"));
-            mySqlDataSource.setUser(properties.getProperty("MYSQL_DB_USERNAME"));
-            mySqlDataSource.setPassword(properties.getProperty("MYSQL_DB_PASSWORD"));
-        } 
-        catch (IOException e) 
-        {
-            e.printStackTrace();
-        }
+        mySqlDataSource = new MysqlDataSource();
+        mySqlDataSource.setURL("jdbc:mysql://localhost:3306/hr");
+        mySqlDataSource.setUser("root");
+        mySqlDataSource.setPassword("THOK_AFC2018");
+
         return mySqlDataSource;
     }
 }
