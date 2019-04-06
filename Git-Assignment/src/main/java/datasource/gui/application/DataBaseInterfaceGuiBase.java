@@ -258,7 +258,28 @@ public class DataBaseInterfaceGuiBase extends AnchorPane {
                                         if(!(idTextField.getText()).equals(""))
                                         {
                                             //Islam's Part
-                                            
+                                            if(insertFlag)
+                                            {
+                                                int id = Integer.parseInt(idTextField.getText());
+                                                String lastName = lastNameTextField.getText();
+                                                String firstName = firstNameTextField.getText();
+                                                String phoneNumber = phoneTextField.getText();
+                                                
+                                                try 
+                                                {
+                                                    
+                                                    resultSet.moveToInsertRow();
+                                                    resultSet.updateInt(1, id);
+                                                    resultSet.updateString(2, lastName);
+                                                    resultSet.updateString(3, firstName);
+                                                    resultSet.updateString(4, phoneNumber);
+                                                    resultSet.insertRow();
+                                                } 
+                                                catch (SQLException ex) 
+                                                {
+                                                    ex.printStackTrace();
+                                                }
+                                            }
                                             //Mai's Part
                                         }
                                       });
