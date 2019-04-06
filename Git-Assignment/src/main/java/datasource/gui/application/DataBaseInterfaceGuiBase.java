@@ -164,7 +164,9 @@ public class DataBaseInterfaceGuiBase extends AnchorPane {
         getChildren().add(newButton);
         getChildren().add(updateButton);
         getChildren().add(deleteButton);
+        //Mai's Section
         
+        //Islam's Section
       
     }
 }
