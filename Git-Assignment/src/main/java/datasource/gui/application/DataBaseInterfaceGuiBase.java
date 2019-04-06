@@ -227,6 +227,14 @@ public class DataBaseInterfaceGuiBase extends AnchorPane {
                                             }
                                      });
         
+         newButton.setOnAction(e -> {
+                                        idTextField.setText("");
+                                        firstNameTextField.setText("");
+                                        lastNameTextField.setText("");
+                                        phoneTextField.setText("");
+                                        insertFlag = true;
+                                   });
+        
         
         //Islam's Section
       
