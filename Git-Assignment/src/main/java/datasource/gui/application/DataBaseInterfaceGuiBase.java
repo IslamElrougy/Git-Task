@@ -305,6 +305,26 @@ public class DataBaseInterfaceGuiBase extends AnchorPane {
                                             }
                                         }
                                    });
+         deleteButton.setOnAction(e -> {
+                                        if(!(idTextField.getText()).equals(""))
+                                        {
+                                            int id = Integer.parseInt(idTextField.getText());
+                                            String lastName = lastNameTextField.getText();
+                                            String firstName = firstNameTextField.getText();
+                                            String phoneNumber = phoneTextField.getText();
+
+
+                                            try 
+                                            {
+                                                resultSet.absolute(id);
+                                                resultSet.deleteRow();
+                                            } 
+                                            catch (SQLException ex) 
+                                            {
+                                                ex.printStackTrace();
+                                            }
+                                        }
+                                   });
         
        
         
