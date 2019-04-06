@@ -281,7 +281,34 @@ public class DataBaseInterfaceGuiBase extends AnchorPane {
                                                 }
                                             }
                                             //Mai's Part
+                                             else
+                                            {
+                                                int id = Integer.parseInt(idTextField.getText());
+                                                String lastName = lastNameTextField.getText();
+                                                String firstName = firstNameTextField.getText();
+                                                String phoneNumber = phoneTextField.getText();
+                                                //String updateQuery = "UPDATE employees SET lastname = ?, firstname = ?, phone = ? WHERE id = ?";
+
+                                                try 
+                                                {
+    
+                                                      resultSet.absolute(id);
+                                                      resultSet.updateString(2, lastName);
+                                                      resultSet.updateString(3, firstName);
+                                                      resultSet.updateString(4, phoneNumber);
+                                                      resultSet.updateRow();
+                                                } 
+                                                catch (SQLException ex) 
+                                                {
+                                                    ex.printStackTrace();
+                                                }
+                                            }
                                         }
-                                      });
+                                   });
+        
+       
+        
+                                       
+                                     
     }
 }
