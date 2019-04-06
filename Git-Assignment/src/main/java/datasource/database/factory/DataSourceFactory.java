@@ -20,7 +20,7 @@ public class DataSourceFactory
         MysqlDataSource mySqlDataSource = null;
         try 
         {
-            fileInputStream = new FileInputStream("C:\\Users\\Islam El-Rougy\\Documents\\NetBeansProjects\\DataSource First Project\\database.properties");
+            fileInputStream = new FileInputStream("database.properties");
             properties.load(fileInputStream);
             mySqlDataSource = new MysqlDataSource();
             mySqlDataSource.setURL(properties.getProperty("MYSQL_DB_URL"));
