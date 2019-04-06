@@ -253,7 +253,14 @@ public class DataBaseInterfaceGuiBase extends AnchorPane {
                                                 Logger.getLogger(DataBaseInterfaceGuiBase.class.getName()).log(Level.SEVERE, null, ex);
                                             }
                                      });
-        
-        
+        //Common Method
+        updateButton.setOnAction(e -> {
+                                        if(!(idTextField.getText()).equals(""))
+                                        {
+                                            //Islam's Part
+                                            
+                                            //Mai's Part
+                                        }
+                                      });
     }
 }
